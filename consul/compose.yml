@@ -3,6 +3,7 @@ services:
     image: consul:1.15.4
     container_name: consul
     hostname: consul
+    restart: unless-stopped
     ports:
       - "8500:8500"
       - "8600:8600/udp"

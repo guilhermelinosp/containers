@@ -1,0 +1,17 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0
+    container_name: keycloak
+    hostname: keycloak
+    restart: unless-stopped
+    environment:
+      KEYCLOAK_USER: "keycloak"
+      KEYCLOAK_PASSWORD: "!Passw0rd"
+      DB_VENDOR: h2
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/auth/realms/master"]
+      interval: 30s
+      timeout: 10s
+      retries: 5

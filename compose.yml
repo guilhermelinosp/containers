@@ -7,4 +7,5 @@ services:
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: "root-token"
       VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+    restart: unless-stopped
     command: "server -dev -dev-root-token-id=root-token"
