@@ -1,0 +1,8 @@
+services:
+  nats:
+    image: nats:latest
+    container_name: nats
+    hostname: nats
+    ports:
+      - "4222:4222"  # NATS client
+      - "8222:8222"  # NATS management
